@@ -66,11 +66,11 @@ public:
         return (head == 0);
     }
 
-    T   deleteAt(int index){
+    T deleteFirst(){
         DLink<T> *p;
         p = head;
 
-        if (head == tail){      // Para un elemento en la lista.
+        if (head == tail) {      // Para un elemento en la lista.
             head = 0;
             tail = 0;
         } else {
@@ -81,6 +81,42 @@ public:
 
         delete p;
         size--;
+    }
+
+    T deleteLast(){
+        DLink<T> *p;
+        p = tail;
+
+        tail = p->previous;
+        tail->next=0;
+
+        delete p;
+        size--;
+    }
+
+    T   deleteAt(int index){
+        DLink<T> *p, *q, *w;
+        int i = 0;
+        p = head;
+
+        if (index == 0) {
+            deleteFirst();
+
+        } else if (index == size){
+          deleteLast();
+
+        } else {
+            while (i != index) {
+                q = p;
+                p = p->next;
+                ++i;
+            }
+            w = p->next;
+            q->next = w;
+            w->previous = q;
+            delete p;
+            size--;
+        }
     }
 
     void clear(){
