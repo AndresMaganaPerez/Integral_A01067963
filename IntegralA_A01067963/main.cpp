@@ -4,6 +4,7 @@
 // 19 - Sept - 2021
 
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <sstream>
 #include <vector>
@@ -11,6 +12,7 @@
 #include <string>
 #include "sort.h"
 #include "search.h"
+#include "dlink.h"
 
 using namespace std;
 
@@ -25,6 +27,8 @@ string arrayToString(const vector<T> &v) {
     aux << "]";
     return aux.str();
 }
+
+// Read CSV
 
 int main() {
     int array_calif[]={98, 75, 82, 84, 77, 62, 54, 93, 87, 94, 50, 82, 81, 95, 92, 78, 97, 89, 90, 72};
@@ -45,6 +49,24 @@ int main() {
         cout << "El valor no fue encontrado." << "\n";
     } else
     cout << "Valor obtenido: " << valor_buscado << "\n";
+
+    // Lista Doblemente Ligada
+    DList<int> l1;
+    int i;
+
+    for(i = 0; i < calif_ordenadas.size(); i++){
+        int val;
+        val = calif_ordenadas[i];
+        l1.insertion(val);
+    }
+    cout<<"Lista Doblemente Ligada: "<<l1.toString()<< "\n";
+
+    cout<<"Valor Buscado: "<<77<< "\n";
+    cout<<"Valor Obtenido: "<<l1.search(77)<< "\n";
+
+    cout<<"Indice a Eliminar: "<<2<< "\n";
+    l1.deleteAt(2);
+    cout<<"Lista con Indice Borrado: "<<l1.toString()<< "\n";
 
     return 0;
 }
