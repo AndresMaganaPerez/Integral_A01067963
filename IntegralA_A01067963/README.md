@@ -29,8 +29,12 @@ La **función merge sort** es de complejidad O(n), porque siempre utiliza la fun
 
 ### Estructuras Lineales
 Los **primeros constructores** de ambas clases tienen una complejidad de O(1), porque siempre realizan las mismas instrucciones.
-La **función insertion** tiene tres ifs lo cual tiene complejidad de O(1), debido a que sea cual sea el if en el que entre, realizará las mismas instrucciones que estén dentro de el.
+
+La **función insertion** tiene tres ifs lo cual tiene complejidad de O(1), debido a que sea cual sea el if en el que entre, realizará las mismas instrucciones que estén dentro de él.
+
 La **función search** utiliza un ciclo while para poder iterar dentro de la lista. Como esta función tiene un ciclo que depende del número de elementos que tenga la lista,
 tiene complejidad de O(n). Dentro del while hay un if con complejidad O(1), sin embargo se toma en consideración la peor complejidad.
-La **función delete first** y delete last tienen la misma complejidad, O(1), porque siguen las mismas lineas de instrucciones.
+
+La **función delete first** y delete last tienen la misma complejidad, O(1), porque siguen las mismas líneas de instrucciones.
+
 La **función deleteAt** tiene un ciclo while para iterar en la lista, por lo que tiene una complejidad de O(n). 
