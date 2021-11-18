@@ -1,0 +1,2 @@
+# Fase 1. Grafos
+En la primera fase del segundo proyecto se implementa una estructura de grafos con la utilización de archivos de texto. Dentro de esta fase se implementarán las funciones de loadGraphList, Depth-First Search y Breadth-First Search. 

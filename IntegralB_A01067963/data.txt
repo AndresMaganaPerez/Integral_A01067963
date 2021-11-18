@@ -1,0 +1,6 @@
+(alamos, tec)
+(alamos, antea)
+(tec, refugio)
+(tec, depaFer)
+(depaFer, refugio)
+(depaFer, campanario)
