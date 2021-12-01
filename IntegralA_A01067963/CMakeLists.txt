@@ -8,4 +8,4 @@ include_directories(.)
 add_executable(IntegralA_A01067963
         main.cpp
         search.h
-        sort.h)
+        sort.h heap.h)

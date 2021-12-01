@@ -16,22 +16,29 @@ template <class T>
 
 class Search{
 public:
-    int bsq_seq(vector<T> v, int val){
-        int mid = 0;
-        int low = 0;
-        int high = v.size();
+    int bsq_seq(vector<T> v, int val);
+};
 
-        while (low < high){ // Caso base: Si low = high, ya no entra al ciclo.
-            mid = (high + low) / 2;
+template <class T>
+int Search<T>::bsq_seq(vector<T> v, int val){
+    int mid = 0;
+    int low = 0;
+    int high = v.size();
 
-            if (val == v[mid]){ // Caso en el que encuentra el valor deseado.
-                return v[mid];
-            } else if (val > v[mid]){   // Caso en el que el valor deseado está entre el high y mid.
-                low = mid + 1;
-            } else if (val < v[mid]){   // Caso en el que el valor deseado está entre el low y mid.
-                high = mid - 1;
-            }
-        }
+    while (low < high){ // Caso base: Si low = high, ya no entra al ciclo.
+        mid = (high + low) / 2;
+
+         if (val == v[mid]){ // Caso en el que encuentra el valor deseado.
+             return v[mid];
+         } else if (val > v[mid]){   // Caso en el que el valor deseado está entre el high y mid.
+             low = mid + 1;
+         } else if (val < v[mid]){   // Caso en el que el valor deseado está entre el low y mid.
+             high = mid - 1;
+         }
+    }
+    if (v[low] != val){
+        return -1;
+    } else {
         return v[low];  // Se regresa el valor dentro del vector, no la posición.
     }
-};
+}

@@ -25,6 +25,8 @@ private:
 template <class T>
 class DList {     // Representa una lista
 public:
+    int 	size;   // Variable instancia. Total de elementos en la estructura.
+
     DList() : head(0), size(0) {}     // Primer Constructor.
     ~DList() {    // Deconstructor
         clear();
@@ -148,10 +150,12 @@ public:
         aux << "]";
         return aux.str();
     }
+    int Size(){
+        return size;
+    }
 
 private:
     DLink<T> *head, *tail;  // Variable instancia. Apuntador al primer elemento. Apuntador a último elemento.
-    int 	size;   // Variable instancia. Total de elementos en la estructura.
 };
 
 #endif //INTEGRALA_ALGORITMOS_DE_ORDENAMIENTO_DLINK_H
