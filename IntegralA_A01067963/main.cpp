@@ -13,7 +13,8 @@
 #include "sort.h"
 #include "search.h"
 #include "dlink.h"
-#include "heap.h"
+#include "splay.h"
+#include "materias.h"
 
 using namespace std;
 
@@ -38,7 +39,7 @@ int main() {
     DList<int> l1;
     int i, num, op, n;
     string nom, impresion, splayRemove;
-    int valor_buscado, resp_bsq, eliminar;
+    int valor_buscado, resp_bsq, eliminar, val, s;
 
     cout<<"Ingrese su nombre: ";
     cin>>nom;
@@ -47,18 +48,42 @@ int main() {
     cout<<"Por favor ingrese el numero de calificaciones que desea agregar al sistema:"<<"\n";
     cin>>n;
 
-    Heap<int> califHeap(n);
-
-    int *array_calif = new int[n];      // Reserva tantos espacios de memoria como lo indica el usuario.
+    //int *array_calif = new int[n];      // Reserva tantos espacios de memoria como lo indica el usuario.
     cout<<"Ingrese las calificaciones: "<<"\n";
     for (i = 0; i < n; i++){
-        cin>>array_calif[i];
+        cin>>val;
+        l1.insertion(val);
+        // cin>>array_calif[i];
     }
     cout<<"El sistema guardo las siguientes calificaciones: "<<"\n"<<"\n";
+    cout<<l1.toString()<<"\n";
+    cout<<"\n";
+
+    SplayTree<int> califSplay;
+
+    while (true) {
+        cout << "Seleccione la(s) materia(s) que imparte: " << "\n";
+        cout << "Para detenerse ingrese -1." <<"\n";
+        cout << "0. Matematicas" << "\n";
+        cout << "1. Programacion" << "\n";
+        cout << "2. Civica y Etica" << "\n";
+        cout << "3. Arte" << "\n";
+        cout << "4. Biologia" << "\n";
+        cout << "5. Fisica" << "\n";
+        cout << "\n";
+        cout << "Numero de opcion: ";
+        cin >> s;
+        if (s == -1){
+            break;
+        }
+        califSplay.add(s);
+        cout << "\n";
+        cout << "\n";
+    }
 
     // vector<int> calificaciones(array_calif, array_calif + sizeof(array_calif) / sizeof(array_calif[0]));
-    vector<int> calificaciones(array_calif, array_calif + n);
-    cout<<arrayToString(calificaciones)<<"\n";
+    // vector<int> calificaciones(array_calif, array_calif + n);
+    // cout<<arrayToString(calificaciones)<<"\n";
 
     while (true) {
         cout << "Ahora seleccione la operacion que quiere realizar (num. de opcion):" << "\n";
@@ -66,36 +91,48 @@ int main() {
         cout << "2. Ordenar la lista de menor a mayor." << "\n";
         cout << "3. Buscar alguna calificacion en la lista." << "\n";
         cout << "4. Eliminar una calificacion" << "\n";
-        cout << "5. Salir" << "\n";
+        cout << "5. Ver materias" << "\n";
+        cout << "6. Salir" << "\n";
         cin >> op;
         cout << "\n";
 
-        // Lista Doblemente Ligada - Agrega nueva Calificación.
+        // Lista doblemente ligada - Agrega nueva Calificación.
         int j;
         if (op == 1) {
-            for (j = 0; j < calificaciones.size(); j++) {
+            /*for (j = 0; j < calificaciones.size(); j++) {
                 int val;
                 val = calificaciones[j];
                 l1.insertion(val);
-            }
+            }*/
             cout << "Ingrese la nueva calificacion: ";
             cin >> num;
             l1.insertion(num);
-            cout << "La nueva lista doblemente ligada es: " << "\n";
+            cout << "La nueva lista es: " << "\n";
             cout << l1.toString() << "\n";
             cout << "\n";
             continue;
         }
 
-        // Sorts
+        // Sorts - Ordena los elementos
         if (op == 2) {
+            int *array_calif = new int[l1.Size()];      // Reserva tantos espacios de memoria como lo indica el usuario.
+            for (i = 0; i < l1.Size(); i++){        //TODO: Ciclo no llega hasta el size.
+                array_calif[i] = l1.val(i);
+            }
+            vector<int> calificaciones(array_calif, array_calif + n);
             calif_ordenadas = sort.ordenaMerge(calificaciones);
             impresion = arrayToString(calif_ordenadas);
             cout << impresion << "\n";
+            cout<<"\n";
         }
 
-        // Search
+        // Search - Busca elemento en la lista
         if (op == 3) {
+            int *array_calif = new int[l1.Size()];      // Reserva tantos espacios de memoria como lo indica el usuario.
+            for (i = 0; i < l1.Size(); i++){
+                array_calif[i] = l1.val(i);
+            }
+            vector<int> calificaciones(array_calif, array_calif + n);
             calif_ordenadas = sort.ordenaMerge(calificaciones);
             cout << "Ingrese el valor a buscar: ";
             cin >> valor_buscado;
@@ -110,23 +147,36 @@ int main() {
             continue;
         }
 
-        // Splay
+        // Lista Doblemente Ligada - Elimina Calificación
         if (op == 4) {
-            int j;
-            // for (j = calificaciones.size()-1; j >= 0; j--) {
-            for (j = 0; j < calificaciones.size(); j++) {
-                int val;
-                val = calificaciones[j];
-                califHeap.push(val);
-            }
-            cout << arrayToString(calificaciones) << "\n";
-            califHeap.pop();
-            cout << califHeap.toString();
+            int ind;
+            cout<<l1.toString()<<"\n";
+            cout<<"Ingresa el indice de la calificacion que desea eliminar (la lista comienza en 0): ";
+            cin>>ind;
+            l1.deleteAt(ind);
+            cout<<"La nueva lista es la siguiente: "<<"\n";
+            cout<<l1.toString()<<"\n";
+            continue;
+        }
+
+        // Ver materias.
+        if (op == 5){
+            cout << "\n";
+            cout << "Materias: "<<"\n";
+            cout << "0. Matematicas" << "\n";
+            cout << "1. Programacion" << "\n";
+            cout << "2. Civica y Etica" << "\n";
+            cout << "3. Arte" << "\n";
+            cout << "4. Biologia" << "\n";
+            cout << "5. Fisica" << "\n";
+            string materias = califSplay.inorder();
+            cout <<"Materias de Profesor " << nom << ": " << materias << "\n";
             cout << "\n";
             continue;
         }
+
         // Termina opciones.
-        if (op == 5){
+        if (op == 6){
             break;
         }
     }

@@ -68,6 +68,26 @@ public:
         return (head == 0);
     }
 
+    int val(int ind){
+        DLink<T> *p;     // Variable temporal para recorrer arreglo.
+        int i = 0;
+        p = head;
+        //for (i = 0; ind ; i++) {
+        if (ind == 0) {
+            return valFirst();
+        }
+        while (i != ind){
+            p = p->next;
+            i++;
+        }
+        return p->value;
+        //}
+    }
+
+    int valFirst(){
+        return head->value;
+    }
+
     T deleteFirst(){
         DLink<T> *p;
         p = head;
