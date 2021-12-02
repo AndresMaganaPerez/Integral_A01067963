@@ -40,7 +40,7 @@ int main() {
     string nom, impresion, splayRemove;
     int valor_buscado, resp_bsq, eliminar, val, s;
 
-    cout<<"Ingrese su nombre: ";
+    cout<<"Ingrese su primer nombre: ";
     cin>>nom;
 
     cout<<"Bienvenido a la plataforma de calificaciones Profesor "<<nom<<"."<<"\n";
@@ -48,7 +48,7 @@ int main() {
     cin>>n;
 
     //int *array_calif = new int[n];      // Reserva tantos espacios de memoria como lo indica el usuario.
-    cout<<"Ingrese las calificaciones: "<<"\n";
+    cout<<"Ingrese las calificaciones de 0 a 100: "<<"\n";
     for (i = 0; i < n; i++){
         cin>>val;
         l1.insertion(val);
@@ -70,7 +70,7 @@ int main() {
         cout << "4. Biologia" << "\n";
         cout << "5. Fisica" << "\n";
         cout << "\n";
-        cout << "Numero de opcion: ";
+        cout << "Numero de opcion + enter: ";
         cin >> s;
         if (s == -1){
             break;

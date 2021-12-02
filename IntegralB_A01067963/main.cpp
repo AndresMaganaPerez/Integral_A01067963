@@ -1,9 +1,3 @@
-//
-// Created by droid on 11/18/2021.
-// Integral B Grafos - Andrés Magaña Pérez / A01067963
-// En este proyecto utilizaré los lugares que más comunmente voy en Querétaro a lo largo de la semana.
-//
-
 /*
 *  autor: Benjamin Valdes Aguirre
 *  fecha: Diciembre 2020
@@ -15,43 +9,179 @@
 
 #include <iostream>
 #include <cstring>
-#include "Graph.h"
+#include "graph.h"
+#include "quadratic.h"
 
 using namespace std;
 
+unsigned int myHash(const string s) {
+    unsigned int acum = 0;
+    for (unsigned int i = 0; i < s.size(); i++) {
+        acum += (int) s[i];
+    }
+    return acum;
+}
+
 int main(int argc, char* argv[]) {
+    string resp;
+    int op, start, goal;
 
-    Graph data;
-    Graph star;
+    Graph zoo;
 
-    string g_ans, g_ans_2;
-    string star_ans, star_ans_2;
+    zoo.loadGraphList("zoo.txt", 6, 6);
+    zoo.loadGraphMat("zoo.txt", 6, 6);
 
-    data.loadGraphList("data.txt", "depaDany", "juriquilla");
+    cout << "Bienvenido al Zoologico ITESM" << "\n";
+    cout << "Ingresa si eres Administrador o Personal (Escribir igual la respuesta): " << "\n";
+    cin >> resp;
 
-    data.loadGraphMat("data.txt", "juriquilla", "jurica");
+    // Menú Administrador
+    if (resp == "Administrador"){
+        while (true) {
 
-    //g.printAdjList()
-    g_ans ="vertex 0 : 1 4 vertex 1 : 0 2 3 vertex 2 : 1 vertex 3 : 1 6 vertex 4 : 0 5 vertex 5 : 4 vertex 6 : 3 ";
-    cout << "\n" <<"1.- esperada " << g_ans << "\n programa " << data.printAdjList() << "\n";
-    cout <<	(!g_ans.compare(data.printAdjList()) ? "success\n" : "fail\n");
+            cout << "Ahora seleccione la operacion que quiere realizar (num. de opcion):" << "\n";
+            cout << "1. Mostrar rutas de zoologico." << "\n";
+            cout << "2. Agregar futura ruta de zoologico." << "\n";
+            cout << "3. Buscar rutas entre secciones." << "\n";
+            cout << "4. Mostrar cantidad de animales por seccion." << "\n";
+            cout << "5. Salir" << "\n";
+            cin >> op;
+            cout << "\n";
+
+            // Mostrar grafo en matriz
+            if (op == 1){
+
+                cout<< "0. Reptiliario"<<"\n";
+                cout<< "1. Gorilas"<<"\n";
+                cout<< "2. Girafas"<<"\n";
+                cout<< "3. Tigres"<<"\n";
+                cout<< "4. Lobos"<<"\n";
+                cout<< "5. Focas"<<"\n";
+                cout<< "\n";
+                cout<<"Donde exista un uno en la matriz significa que existe la ruta entre dichas secciones."<<"\n";
+                cout<<"\n";
 
 
-    //g.printAdjMat()
-    g_ans = "0 1 0 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 ";
-    cout << "\n" <<"3.- esperada " << g_ans << "\n programa " << data.printAdjMat() << "\n";
-    cout <<	(!g_ans.compare(data.printAdjMat()) ? "success\n" : "fail\n");
+                cout << zoo.printAdjMat_clean();
 
-    //g.DFS(0,3);
-    g_ans = "visited: 0 4 5 1 3 path: 0 1 3";
-    g_ans_2 = "visited: 0 1 2 3 path: 0 1 3";
-    cout << "\n" <<"5.- esperada 1 " << g_ans << "\n esperada 2 " << g_ans_2 <<"\n programa " << data.DFS(0,3) << "\n";
-    cout <<	( (!g_ans.compare(data.DFS(0,3)) || !g_ans_2.compare(data.DFS(0,3))) ? "success\n" : "fail\n");
+                continue;
+            }
 
-    //g.BFS(0,3);
-    g_ans = "visited: 0 1 4 2 3 path: 0 1 3";
-    g_ans_2 = "visited: 0 4 1 5 3 path: 0 1 3";
-    cout << "\n" <<"7.- esperada 1 " << g_ans << "\n esperada 2 " << g_ans_2 <<"\n programa " << data.BFS(0,3) << "\n";
-    cout <<	(( !g_ans.compare(data.BFS(0,3)) || !g_ans_2.compare(data.BFS(0,3))) ? "success\n" : "fail\n");
+            if (op == 2){
+                continue;       // TODO: implementar agregar lugar con conexiones
+            }
+
+            // DFS
+            if (op == 3){
+                cout << "0. Reptiliario" << "\n";
+                cout << "1. Gorilas" << "\n";
+                cout << "2. Girafas" << "\n";
+                cout << "3. Tigres" << "\n";
+                cout << "4. Lobos" << "\n";
+                cout << "5. Focas" << "\n";
+                cout << "\n";
+                cout << "Ingresa el punto de partida de la ruta en número de la opción: "<< "\n";
+                cin >> start;
+                cout << "\n";
+                cout << "Ingresa el punto de final de la ruta en número de la opción: "<< "\n";
+                cin >> goal;
+                cout << "\n";
+                cout << "Tus posibles rutas son: " << "\n";
+                cout << zoo.DFS(start, goal);
+            }
+
+            // Hash
+            if (op == 4) {
+                Quadratic<string, int> quad_hash(6, string("empty"), myHash);
+
+                quad_hash.put(string("reptiliario"), 10);
+                quad_hash.put(string("gorilas"), 3);
+                quad_hash.put(string("girafas"), 2);
+                quad_hash.put(string("tigres"), 4);
+                quad_hash.put(string("lobos"), 6);
+                quad_hash.put(string("focas"), 5);
+
+                cout << quad_hash.toString().c_str();
+                continue;
+            }
+
+            // Salir
+            if (op == 5){
+                break;
+            }
+        }
+    }
+
+    // Menú Personal
+    if (resp == "Personal"){
+        while (true) {
+            cout << "Ahora seleccione la operacion que quiere realizar (num. de opcion):" << "\n";
+            cout << "1. Mostrar rutas de zoologico." << "\n";
+            cout << "2. Buscar rutas entre secciones." << "\n";
+            cout << "3. Mostrar secciones de animales." << "\n";
+            cout << "4. Salir" << "\n";
+            cin >> op;
+            cout << "\n";
+
+            // Mostrar grafo en matriz
+            if (op == 1){
+
+                cout<< "0. Reptiliario"<<"\n";
+                cout<< "1. Gorilas"<<"\n";
+                cout<< "2. Girafas"<<"\n";
+                cout<< "3. Tigres"<<"\n";
+                cout<< "4. Lobos"<<"\n";
+                cout<< "5. Focas"<<"\n";
+                cout<< "\n";
+                cout<<"Donde exista un uno en la matriz significa que existe la ruta entre dichas secciones."<<"\n";
+                cout<<"\n";
+
+
+                cout << zoo.printAdjMat_clean();
+
+                continue;
+            }
+
+            // BFS
+            if (op == 2){
+                cout << "0. Reptiliario" << "\n";
+                cout << "1. Gorilas" << "\n";
+                cout << "2. Girafas" << "\n";
+                cout << "3. Tigres" << "\n";
+                cout << "4. Lobos" << "\n";
+                cout << "5. Focas" << "\n";
+                cout << "\n";
+                cout << "Ingresa el punto de partida de la ruta en número de la opción: "<< "\n";
+                cin >> start;
+                cout << "\n";
+                cout << "Ingresa el punto de final de la ruta en número de la opción: "<< "\n";
+                cin >> goal;
+                cout << "\n";
+                cout << "Tus posibles rutas son: " << "\n";
+                cout << zoo.DFS(start, goal);
+
+                continue;
+            }
+
+            // Hash
+            if (op == 3) {
+                Quadratic<string, int> quad_hash(6, string("empty"), myHash);
+
+                quad_hash.put(string("reptiliario"), 10);
+                quad_hash.put(string("gorilas"), 3);
+                quad_hash.put(string("girafas"), 2);
+                quad_hash.put(string("tigres"), 4);
+                quad_hash.put(string("lobos"), 6);
+                quad_hash.put(string("focas"), 5);
+
+                cout << quad_hash.toString().c_str();
+                continue;
+            }
+
+            if (op == 4){
+                break;
+            }
+        }
+    }
 
 }
