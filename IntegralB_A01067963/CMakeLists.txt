@@ -6,6 +6,5 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(.)
 
 add_executable(IntegralB_A01067963
-        zoo.txt
         Graph.h
         main.cpp quadratic.h)

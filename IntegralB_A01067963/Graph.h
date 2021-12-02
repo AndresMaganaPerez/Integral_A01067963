@@ -83,7 +83,6 @@ void Graph::loadGraphMat(const string &name, int a, int b){
                v = stoi(line.substr(4,1));
                 addEdgeAdjMatrix(u,v);
             }
-            cout << "Load Successfully";
             archivo.close(); // Closes the file
         } else {
             cout << "Unable to open file";
@@ -104,7 +103,6 @@ void Graph::loadGraphList(const string &name, int a, int b){
             v = stoi(line.substr(4,1));
             addEdgeAdjList(u,v);
         }
-        cout << "Load Successfully";
         archivo.close(); // Closes the file
     } else {
         cout << "Unable to open file";

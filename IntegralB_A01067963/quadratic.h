@@ -96,7 +96,7 @@ bool Quadratic<Key, Value>::put(Key k, Value v){
             count++;
             return true;
         }
-        i = (start + j * j) % size;
+        i = (i + 1) % size;
     }
     return false;
 }

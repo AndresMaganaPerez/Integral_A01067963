@@ -105,8 +105,8 @@ int main() {
     }
 
     // Splay Add
-    string sAdd_ans = "[54, 62, 72, 75, 77, 81, 82, 84, 85, 87, 89, 90, 92, 93, 94, 95, 97]";
-    cout << "\n" <<"9.- Arbol - esperada " << "[54, 62, 72, 75, 77, 81, 82, 84, 85, 87, 89, 90, 92, 93, 94, 95, 97]" << "\n programa " << splay.inorder() << "\n";
+    string sAdd_ans = "[54 62 72 75 77 81 82 84 85 87 89 90 92 93 94 95 97]";
+    cout << "\n" <<"9.- Arbol - esperada " << "[54 62 72 75 77 81 82 84 85 87 89 90 92 93 94 95 97]" << "\n programa " << splay.inorder() << "\n";
     cout <<	(!sAdd_ans.compare(splay.inorder()) ? "success\n" : "fail\n");
 
     // Splay Find
