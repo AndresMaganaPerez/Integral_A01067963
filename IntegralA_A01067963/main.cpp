@@ -96,13 +96,7 @@ int main() {
         cout << "\n";
 
         // Lista doblemente ligada - Agrega nueva Calificación.
-        int j;
         if (op == 1) {
-            /*for (j = 0; j < calificaciones.size(); j++) {
-                int val;
-                val = calificaciones[j];
-                l1.insertion(val);
-            }*/
             cout << "Ingrese la nueva calificacion: ";
             cin >> num;
             l1.insertion(num);
@@ -115,10 +109,10 @@ int main() {
         // Sorts - Ordena los elementos
         if (op == 2) {
             int *array_calif = new int[l1.Size()];      // Reserva tantos espacios de memoria como lo indica el usuario.
-            for (i = 0; i < l1.Size(); i++){        //TODO: Ciclo no llega hasta el size.
+            for (i = 0; i < l1.Size(); i++){
                 array_calif[i] = l1.val(i);
             }
-            vector<int> calificaciones(array_calif, array_calif + n);
+            vector<int> calificaciones(array_calif, array_calif + l1.Size());
             calif_ordenadas = sort.ordenaMerge(calificaciones);
             impresion = arrayToString(calif_ordenadas);
             cout << impresion << "\n";
@@ -131,7 +125,7 @@ int main() {
             for (i = 0; i < l1.Size(); i++){
                 array_calif[i] = l1.val(i);
             }
-            vector<int> calificaciones(array_calif, array_calif + n);
+            vector<int> calificaciones(array_calif, array_calif + l1.Size());
             calif_ordenadas = sort.ordenaMerge(calificaciones);
             cout << "Ingrese el valor a buscar: ";
             cin >> valor_buscado;
