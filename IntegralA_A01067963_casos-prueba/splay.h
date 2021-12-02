@@ -375,10 +375,11 @@ bool SplayTree<T>::find(T val){
     if (root != 0) {
         Node<T>* found = root->find(val);
         root = root->splay(root,found);
-        return (root->value == val);
-    } else {
-        return false;
+        if (root -> value == val){
+            return true;
+        }
     }
+    return false;
 }
 
 template <class T>

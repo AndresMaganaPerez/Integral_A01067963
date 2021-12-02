@@ -43,13 +43,6 @@ int main() {
     string bsq_ans = "89";
     string bsq2_ans = "-1";
 
-
-
-    /*if(valor_buscado == -1){
-        cout << "El valor no fue encontrado." << "\n";
-    } else
-        cout << "Valor obtenido: " << valor_buscado << "\n";*/
-
     calif_ordenadas = sort.ordenaMerge(calificaciones);
     valor_buscado = search.bsq_seq(calif_ordenadas, 89);
     valor2_buscado = search.bsq_seq(calif_ordenadas, 40);
@@ -64,7 +57,7 @@ int main() {
 
     // Valor no existente en arreglo
     cout << "\n" <<"3.- Busqueda - esperada " << "-1" << "\n programa " << valor2_buscado << "\n";
-    cout <<	(!bsq_ans.compare(to_string(valor2_buscado)) ? "success\n" : "fail\n");
+    cout <<	(!bsq2_ans.compare(to_string(valor2_buscado)) ? "success\n" : "fail\n");
 
     // Lista Doblemente Ligada
     DList<int> l1;
@@ -98,28 +91,32 @@ int main() {
     cout << "\n" <<"7.- Lista - esperada " << "[54, 62, 72, 75, 77, 81, 82, 84, 85, 87, 89, 90, 92, 93, 94, 95, 97]" << "\n programa " << l1.toString() << "\n";
     cout <<	(!l3_ans.compare(l1.toString()) ? "success\n" : "fail\n");
 
-    /*//Search val
+    //Search val
     string s_ans = "75";
-    int m = l1.val(3)
-    cout << "\n" <<"8.- Respuesta - esperada " << "75" << "\n programa " << string(m) << "\n";
-    cout <<	(!s_ans.compare(string(m)) ? "success\n" : "fail\n");*/
+    string m = to_string(l1.val(3));
+    cout << "\n" <<"8.- Lista - esperada " << "75" << "\n programa " << m << "\n";
+    cout <<	(!s_ans.compare(m) ? "success\n" : "fail\n");
 
 
-    for(i = 0; i < calif_ordenadas.size(); i++){
-        int val;
+    int val;
+    for(i = 0; i < l1.Size(); i++){
         val = l1.val(i);
         splay.add(val);
     }
 
     // Splay Add
     string sAdd_ans = "[54, 62, 72, 75, 77, 81, 82, 84, 85, 87, 89, 90, 92, 93, 94, 95, 97]";
-    cout << "\n" <<"8.- Árbol - esperada " << "[54, 62, 72, 75, 77, 81, 82, 84, 85, 87, 89, 90, 92, 93, 94, 95, 97]" << "\n programa " << splay.inorder() << "\n";
+    cout << "\n" <<"9.- Arbol - esperada " << "[54, 62, 72, 75, 77, 81, 82, 84, 85, 87, 89, 90, 92, 93, 94, 95, 97]" << "\n programa " << splay.inorder() << "\n";
     cout <<	(!sAdd_ans.compare(splay.inorder()) ? "success\n" : "fail\n");
 
     // Splay Find
-    bool f_ans = "true";
-    cout << "\n" <<"8.- Arbol - esperada " << "true" << "\n programa " << splay.find(75) << "\n";
-    cout <<	(!f_ans.compare(string(splay.find(74))) ? "success\n" : "fail\n");
+    string f_ans = "1";
+    cout << "\n" <<"10.- Arbol - esperada " << "1" << "\n programa " << splay.find(75) << "\n";
+    cout <<	(!f_ans.compare(to_string(splay.find(75))) ? "success\n" : "fail\n");
+
+    string f2_ans = "0";
+    cout << "\n" <<"12.- Arbol - esperada " << "0" << "\n programa " << splay.find(11) << "\n";
+    cout <<	(!f2_ans.compare(to_string(splay.find(11))) ? "success\n" : "fail\n");
 
 
     return 0;
