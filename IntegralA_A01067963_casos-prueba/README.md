@@ -75,3 +75,9 @@ La **función size** solamente regresa la variable de size, entonces es **O(1)**
 ### Mecanismo de consulta de información.
 El programa en la sección de *Buscar calificación* se utiliza un método de listas doblemente ligadas para buscar alguna calificación
 que desee consultar el usuario. 
+
+---
+
+# Notas
+En los casos de prueba de splay.find(), esta función regresa un booleano que al convertirlo en string lo da como 0 y 1. 
+0 siendo **false** y 1 siendo **true**. Es por eso que las respuestas son 0 y/o 1. 
