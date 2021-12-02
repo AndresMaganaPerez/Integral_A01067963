@@ -1,0 +1,3 @@
+C:/Users/droid/CLionProjects/Integral_A01067963/IntegralA_A01067963_casos-prueba/cmake-build-debug/CMakeFiles/IntegralA_A01067963_casos_prueba.dir
+C:/Users/droid/CLionProjects/Integral_A01067963/IntegralA_A01067963_casos-prueba/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/droid/CLionProjects/Integral_A01067963/IntegralA_A01067963_casos-prueba/cmake-build-debug/CMakeFiles/rebuild_cache.dir

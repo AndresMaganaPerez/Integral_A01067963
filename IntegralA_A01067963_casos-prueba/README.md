@@ -3,36 +3,36 @@ En la primera fase del proyecto realicé un código donde utilicé las bases de 
 Lo apliqué para que pueda ordenar una lista de calificaciones de menor a mayor utilizando merge sort. Además de poder realizar búsquedas de alguna calificación.
 
 # Fase 2. Estructuras Lineales
-La segunda fase implementé un algoritmo de estructuras lineales, siendo más específico un algoritmo de listas doblemente ligadas.
-Con este algoritmo se crea una lista con los datos ya ordenados de la fase anterior, con los cuales podemos realizar diversas acciones, como agregar, buscar, o eliminar elementos.
+La segunda fase implementé un algoritmo de estructuras lineales, siendo más específico un algoritmo de listas doblemente ligadas. 
+Con este algoritmo se crea una lista con los datos ya ordenados de la fase anterior, con los cuales podemos realizar diversas acciones, como agregar, buscar, o eliminar elementos. 
 
-# Fase 3. Árboles
+# Fase 3. Árboles 
 La tercera fase del proyecto integré un árbol splay. Donde creo una estructura de las materias que imparte el profesor. Dentro de este algoritmo se pueden
 realizar diferentes funciones, como agregar un dato, obtener un dato, eliminar un dato, imprimirlo de diferentes maneras, entre otros. Las que yo utilicé fue
-agregar un dato e imprimir los datos que tiene el árbol.
+agregar un dato e imprimir los datos que tiene el árbol. 
 
 ---
 
 # SICT0302B: Toma decisiones
 ## Selecciona un algoritmo de ordenamiento adecuado al problema
 ### Algoritmo de Ordenamiento
-Para este proyecto utilicé un **algoritmo de ordenamiento** merge sort, debido a que mi lista tenía elementos aleatorios.
+Para este proyecto utilicé un **algoritmo de ordenamiento** merge sort, debido a que mi lista tenía elementos aleatorios. 
 Merge sort a comparación de los otros algoritmos que vimos en clase es más rápido ordenando listas aleatorias.
 
 ### Estructuras Lineales
-En la sección de **estructura lineal**, utilicé una lista doblemente ligada. Esto porque es la forma más completa en la que podemos hacer manejo de los datos.
-Contiene más opciones de manejo de datos que la lista ligada.
+En la sección de **estructura lineal**, utilicé una lista doblemente ligada. Esto porque es la forma más completa en la que podemos hacer manejo de los datos. 
+Contiene más opciones de manejo de datos que la lista ligada. 
 
 ### Estructura Árbol
 Utilicé un **árbol splay** debido a que la manera de trabajar con los datos priorizados es mejor que los demás árboles. Además, en la búsqueda de algún elemento
-es mucho más rápido que los otros tipos de árboles vistos en clase.
+es mucho más rápido que los otros tipos de árboles vistos en clase. 
 
 ---
 
 # SICT0301B: Evalúa los componentes
 ## Presenta casos de prueba para todas las funciones y procedimientos del programa
 En el proyecto *IntegralA_A01067963_casos-prueba*, se implementan los diferentes casos prueba que incluyen las funciones
-de los diferentes algoritmos que se utilizan en el programa.
+de los diferentes algoritmos que se utilizan en el programa. 
 
 ## Hace un análisis de complejidad correcto y completo para todo el programa y sus componentes
 
@@ -54,7 +54,7 @@ tiene complejidad de O(n). Dentro del while hay un if con complejidad O(1), sin 
 
 La **función delete first** y delete last tienen la misma complejidad, O(1), porque siguen las mismas líneas de instrucciones.
 
-La **función deleteAt** tiene un ciclo while para iterar en la lista, por lo que tiene una complejidad de O(n).
+La **función deleteAt** tiene un ciclo while para iterar en la lista, por lo que tiene una complejidad de O(n). 
 
 ### Estructura Árbol
 La **función add** no hace un recorrido total del árbol, solamente va analizando los nodos izquierdos y derechos y en base a eso
@@ -68,7 +68,7 @@ todo el árbol a ciegas. Entonces tiene una complejidad de **O(log n)**.
 La **función size** solamente regresa la variable de size, entonces es **O(1)**.
 
 ---
-
+ 
 # SICT0303B: Implementa acciones científicas
 ## Utiliza algún mecanismo de consulta de información, lectura de archivos o escritura de archivos.
 
