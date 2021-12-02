@@ -31,7 +31,6 @@ string arrayToString(const vector<T> &v) {
 
 
 int main() {
-    //int array_calif[]={98, 75, 85, 84, 77, 62, 54, 93, 87, 94, 50, 82, 81, 95, 92, 78, 97, 89, 90, 72};
     vector<int> calif_ordenadas;
     Sorts<int> sort;
     Search<int> search;
@@ -47,12 +46,10 @@ int main() {
     cout<<"Por favor ingrese el numero de calificaciones que desea agregar al sistema:"<<"\n";
     cin>>n;
 
-    //int *array_calif = new int[n];      // Reserva tantos espacios de memoria como lo indica el usuario.
     cout<<"Ingrese las calificaciones de 0 a 100: "<<"\n";
     for (i = 0; i < n; i++){
         cin>>val;
         l1.insertion(val);
-        // cin>>array_calif[i];
     }
     cout<<"El sistema guardo las siguientes calificaciones: "<<"\n"<<"\n";
     cout<<l1.toString()<<"\n";
