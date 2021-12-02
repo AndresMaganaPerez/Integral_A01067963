@@ -5,20 +5,6 @@
 #ifndef INTEGRALB_A01067963_GRAPH_H
 #define INTEGRALB_A01067963_GRAPH_H
 
-/*
-*  autor: Benjamin Valdes Aguirre
-*  fecha: Diciembre 2020
-*  programa: act 4.1 Implementación Grafos
-*  desc: estos programas son soluciones parciales a algunos de
-*  las actividades planteadas en el curso TC1031
-*
-*
-*  Extiende este archivo para completar tu solución.
-*/
-
-#ifndef Graph_H_
-#define Graph_H_
-
 #include <string>
 #include <cstdio>
 #include <sstream>
@@ -284,7 +270,5 @@ void Graph::sortAdjList(){
         sort(adjList[i].begin(), adjList[i].end());
     }
 }
-
-#endif /* Graph_H_ */
 
 #endif //INTEGRALB_A01067963_GRAPH_H

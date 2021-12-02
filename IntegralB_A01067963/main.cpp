@@ -1,11 +1,8 @@
-/*
-*  autor: Benjamin Valdes Aguirre
-*  fecha: Diciembre 2020
-*  programa: act 4.1 Implementacion Grafos
-*  desc: estos programas son solciones parciales a algunos de
-*  las actividades planteadas en el curso TC1031
-*
-*/
+// Integral B - Programa de Laboratorio ITESM
+//
+// Autor: Andrés Magaña Pérez - A01067963
+// Fecha: 2-dic-2021
+//
 
 #include <iostream>
 #include <fstream>

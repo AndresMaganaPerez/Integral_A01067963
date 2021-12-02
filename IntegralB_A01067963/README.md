@@ -41,7 +41,7 @@ En la primera fase del segundo proyecto se implementa una estructura de grafos c
 Dentro de esta fase se implementarán las funciones de loadGraphList, Depth-First Search y Breadth-First Search.  
 
 # Fase 2. Hashes
-
+Se imiplementaron hashes para el uso de llaves con sus valores. Se utilizaron las funciones put() y get() del algoritmo. 
 
 ---
 
@@ -84,13 +84,15 @@ De la misma manera que addEdgeAdjMatrix agrega nuevos nodos a la lista, el algor
 **O(1)**. 
 
 ### Función printAdjMat_clean
-
+Esta función depende de los nodos que tenga el grafo en general para poder imprimir una matriz con los nodos que tiene el grafo.
+Tiene una complejidad de **O(n)** por su dependencia a los nodos.
 
 ### Función DFS
-
+La función de recorrido DFS tiene una complejidad de **O(log n)**. Hace recorridos dependiendo de los nodos que ya ha visitado,
+y los nodos de start y goal.
 
 ### Función BFS
-
+La función de recorrido BFS tiene la misma complejidad que DFS de **O(log n)** por las mismas razones. 
 
 ### Función put
 La función put tiene una complejidad de **O(n)**. Esto debido a que los ciclos que haga la
@@ -103,9 +105,6 @@ La función get es **O(1)**, porque tiene solamente un condicional y el algoritm
 
 # SICT0303B: Implementa acciones científicas
 ## Utiliza algún mecanismo de consulta de información, lectura de archivos o escritura de archivos.
-
---- 
-## Hash
-### Mecanismo de consulta de información.
-El programa en la sección de *Buscar calificación* se utiliza un método de listas doblemente ligadas para buscar alguna calificación
-que desee consultar el usuario.
+En la utilización de los grafos, **lee** los datos de un archivo para crear un grafo. Esto en las funciones de loadGraphMat y 
+loadGraphList. En la escritura de archivos es en la **opción 4 del menú principal** del programa. Pide que ingreses una molécula
+que te gustaría que esté en el programa. Recibe el nombre de la molécula, crea un archivo nuevo de texto y lo **escribe** en ese archivo.

@@ -1,7 +1,8 @@
-// Programación de estructuras de datos y algoritmos fundamentales
-// Integral A
-// Andrés Magaña Pérez - A01067963
-// 19 - Sept - 2021
+// Integral Casos de Prueba
+//
+// Autor: Andrés Magaña Pérez - A01067963
+// Fecha: 2-dic-2021
+//
 
 #include <iostream>
 #include <fstream>
