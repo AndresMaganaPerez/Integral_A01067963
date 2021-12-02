@@ -1,5 +1,4 @@
 # Descripción del uso del programa
-## 1. Inserción de calificaciones
 Este es un programa para un profesor, que puede agregar calificaciones, manipularlas, y además puede agregar las materias que imparte.
 
 Primero, el programa pide que ingrese un primer nombre, el nombre se debe ingresar de preferencia sin acentos y sin espacios. 
@@ -8,12 +7,17 @@ ejemplo, 98, 67, 77, etc. Muestra las calificaciones agregadas. Después, muestr
 Se ingresa solamente un número de una materia que el profesor imparte y se presiona enter, si quiere agregar otra vuelve a hacer lo mismo,
 si no se ingresa un -1. Se muestra un menú, donde se pueden manipularse las calificaciones de diferentes maneras. Al igual que 
 las partes anteriores, seleccionas la opción que deseas ingresando el número de la opción. 
+
 La opción uno es para ingresar una nueva calificación, para eso solamente se ingresa la calificación a agregar y se da enter.
+
 La opción dos es para ordenar los elementos, solamente con ingresar el número 2 en el menú, se muestra la lista ordenada de menor a mayor.
+
 La opción tres es para buscar una calificación en la lista. En esta opción se ingresa la calificación que se busca, por ejemplo 77, 
 y el programa regresa si está en la lista, o no lo está.
+
 La opción cuatro elimina una calificación. Al elegir esta opción se despliega la lista de calificaciones, y para poder eliminar
 una calificación se tiene que ingresar el índice de la calificación. Los índices de la lista empieza en 0. 
+
 La opción cinco es para mostrar las materias del profesor, únicamente se ingresa la opción 5 en el menú y despliega las materias.
 Por último, la opción seis es para finalizar el programa.
 
